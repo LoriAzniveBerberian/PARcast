@@ -1,8 +1,3 @@
-# PARpedo
-
-Bespoke open-source instrument for profiling photosynthetically active radiation (PAR) and calculating light attenuation coefficients (Kd) in coastal aquatic env
-
-cat > "/Users/loriberberian/Desktop/bioSCape/PARcast/README.md" << 'EOF'
 # PARcast
 A bespoke instrument for profiling photosynthetically active radiation (PAR) via water column casts.
 
