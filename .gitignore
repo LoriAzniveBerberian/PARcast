@@ -1,0 +1,24 @@
+# Data files — too large for GitHub, keep local
+data_processing/data/raw/
+data_processing/data/processed/
+
+# Mac system files
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints
+.ipynb_checkpoints/
+
+# Jupyter
+.jupyter/
+
+# Conda environment
+*.egg-info/
+
+# Arduino build files
+*.elf
+*.hex
+*.bin
