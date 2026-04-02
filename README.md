@@ -38,6 +38,3 @@ conda create -n parcast python=3.11
 conda activate parcast
 pip install -r requirements.txt
 ```
-
-## Contributors
-Lori Berberian & Nareg — UCLA Geography / PhsiQuantum
