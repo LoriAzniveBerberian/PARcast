@@ -9,9 +9,6 @@ Descent-assisted instrument that profiles PAR through the water column inside a 
 **Instrument B — Land Station (LPAR)**
 Surface reference PAR sensor that logs sunlight above water during aquatic deployments. Components: Teensy 4.1, ADS1115 16-bit ADC, DS3231 RTC, SQ-500-SS PAR sensor, microSD card.
 
-## How It Works
-The land station records surface PAR (E0) while the aquatic profiler records PAR and depth simultaneously. These datasets are combined in post-processing to calculate the light attenuation coefficient Kd.
-
 ## File Naming Convention
 Land station:      `B_LPAR_YYYYMMDD_0001.CSV`
 Aquatic profiler:  `A_WPAR_YYYYMMDD_0001.CSV`
@@ -37,11 +34,11 @@ PARcast/
 ├── data_processing/
 │   ├── data/
 │   │   ├── raw/
-│   │   │   ├── LPAR/     ← B_LPAR CSV files go here (local only)
-│   │   │   └── WPAR/     ← A_WPAR CSV files go here (local only)
-│   │   └── processed/    ← output from Python scripts
-│   ├── scripts/          ← Jupyter notebooks and Python scripts
-│   └── notebooks/
+│   │   │   ├── LPAR/     B_LPAR CSV files go here (local only)
+│   │   │   └── WPAR/     A_WPAR CSV files go here (local only)
+│   │   └── processed/    output from Python scripts
+│   ├── scripts/          Jupyter notebooks and Python scripts
+│   
 ├── field_notes/
 │   └── field_notes_template.txt
 ├── requirements.txt
@@ -56,6 +53,3 @@ conda create -n parcast python=3.11
 conda activate parcast
 pip install -r requirements.txt
 ```
-
-## Contributors
-Lori Berberian & Nareg — UCLA Geography / PhsiQuantum
