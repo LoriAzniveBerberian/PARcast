@@ -1,0 +1,110 @@
+PARCAST FIELD NOTES TEMPLATE
+=============================
+Copy and rename this file for every field day: YYYYMMDD_SITE.txt
+Example: 20260402_KELP.txt
+
+================================================================
+PRE-DEPLOYMENT CHECKLIST (do this at home before going to field)
+================================================================
+[ ] RTC time verified — plug into Mac, run rtc_test.ino, confirm correct date/time
+[ ] land_station_final.ino uploaded to Teensy
+[ ] MEMORY_B SD card inserted in Teensy slot (underside, push until click)
+[ ] SD card has space — check on Mac before leaving
+[ ] PAR sensor cap ON
+[ ] USB power bank charged
+[ ] Micro USB cable packed
+[ ] Field notes template printed or on phone
+
+
+================================================================
+INSTRUMENT OVERVIEW — READ BEFORE FIRST DEPLOYMENT
+================================================================
+The Teensy runs automatically every time it gets power.
+You DO NOT need a laptop, Arduino IDE, or any computer in the field.
+
+STARTING A DEPLOYMENT:
+  1. Plug USB power bank into Teensy micro USB port
+  2. Wait 3 seconds for startup
+  3. Remove PAR sensor cap
+  4. Logging is now active — a new CSV file is being written
+
+STOPPING A DEPLOYMENT:
+  1. Replace PAR sensor cap
+  2. Unplug USB power bank
+  3. Deployment complete — CSV file is saved automatically
+
+STARTING A NEW DEPLOYMENT (same day):
+  1. Simply unplug and replug the power bank
+  2. A new file is created automatically (e.g. 0001 → 0002)
+  3. No laptop needed
+
+THE RESET BUTTON — EMERGENCY ONLY:
+  The small button on the Teensy board is the reset button.
+  DO NOT press it during a deployment.
+  It creates a new file and interrupts logging.
+  Only press if the Teensy freezes or stops responding.
+  If pressed accidentally — note it in the log below immediately.
+
+================================================================
+DATE: 
+SITE:
+OBSERVERS:
+WEATHER: 
+================================================================
+
+--- DEPLOYMENT 1 ---
+File: B_LPAR_________0001.CSV
+Power on time:
+Power off time:
+
+Sky state:         [ ] Clear  [ ] Partly cloudy  [ ] Overcast
+Wind speed (m/s):
+Air temp (°C/°F):
+Sun angle (°):
+Notes:
+
+Cap removed at (time):
+Cap replaced at (time):
+Disturbances (people, shadows, clouds):
+
+Reset button pressed: [ ] No  [ ] Yes — Time: _______ Reason: _______
+Files affected if reset pressed: _______ split into _______ and _______
+
+-------------------------------------------------------------------
+
+POST DEPLOYMENT CHECKLIST
+==========================
+[ ] PAR sensor cap replaced
+[ ] Power bank unplugged
+[ ] SD card removed from Teensy
+[ ] SD card inserted into Mac
+[ ] CSV files copied to:
+    data_processing/data/raw/LPAR/
+[ ] SD card ejected properly from Mac
+[ ] SD card reinserted into Teensy
+[ ] Field notes saved to:
+    field_notes/YYYYMMDD_SITE.txt
+[ ] Files pushed to GitHub
+
+
+
+
+
+================================================================
+TROUBLESHOOTING
+================================================================
+Timestamps show 2018:
+   - RTC coin cell (CR1220) lost power or unseated
+   - Fix: reseat coin cell + side up, re-upload rtc_test.ino to reset time
+   - Do NOT use data with 2018 timestamps
+
+Multiple files created unexpectedly:
+   - Reset button was pressed accidentally
+   - Note which files are affected and at what times
+   - Data is still usable — just fragmented
+
+SD card not detected:
+   - Push card in firmly until it clicks
+   - Check FAT32 MBR format (see SD_CARD_FORMAT_INSTRUCTIONS.txt)
+
+
