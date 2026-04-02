@@ -1,2 +1,2 @@
 # PARcast
-A bespoke underwater PAR profiler for measuring light attenuation  in aquatic environments
+A bespoke instrument for profiling photosynthetically active radiation (PAR) via water column casts
