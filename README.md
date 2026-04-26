@@ -1,32 +1,25 @@
 # PARcast
-
-A bespoke instrument for profiling photosynthetically active radiation (PAR) via water column casts.
+PARcast is a DIY oceanography instrument supporting cost-effective PAR profiling of shallow (0–30 m) environments where shipborne profilers and autonomous floats are generally not applicable. PARcast is manually deployed by an in-water swimmer or diver at the water’s surface and falls via tethered descent. It comprises two units with cosine-corrected quantum sensors (Apogee SQ-500).
 
 ## Instruments
-
-**E_d(z, PAR) profiler — in-water unit**
+**E_d(z, PAR) aquatic profiler**
 Descent-assisted instrument that profiles downwelling PAR through the water column inside a Blue Robotics 4" enclosure. Components: Teensy 4.1, ADS1115 16-bit ADC, DS3231 RTC, SQ-500-SS PAR sensor, MS5837 pressure/temperature sensor, microSD card, Orbtronic 18650 batteries.
 
-**E_s(PAR) reference station — surface unit**
+**E_s(PAR) surface reference**
 Surface reference PAR sensor that logs incident sunlight above water during in-water deployments. Used for profile normalization and derivation of apparent optical properties. Components: Teensy 4.1, ADS1115 16-bit ADC, DS3231 RTC, SQ-500-SS PAR sensor, microSD card.
 
 ## Naming Convention
+Notes and comments use `E_s(PAR)` and `E_d(z, PAR)`.
+File names, folder names, and code use `E_sPAR` and `E_dzPAR`.
 
-PARcast uses parenthesized scientific notation in human-readable text (comments, READMEs, plot labels) and underscored versions in filenames, paths, and code identifiers.
+CSV file names:
+- surface reference: `E_sPAR_YYYYMMDD_0001.CSV`
+- aquatic profiler: `E_dzPAR_YYYYMMDD_0001.CSV`
 
-| Context | Surface unit | In-water unit |
-|---|---|---|
-| Prose, comments, plot labels | `E_s(PAR)` | `E_d(z, PAR)` |
-| File names, folder names, code | `E_sPAR` | `E_dzPAR` |
-
-### File naming on the SD cards
-- Surface reference:  `E_sPAR_YYYYMMDD_0001.CSV`
-- In-water profiler:  `E_dzPAR_YYYYMMDD_0001.CSV`
-
-### SD card volume labels
-- Surface reference:  `PARCAST_Es`
-- In-water profiler:  `PARCAST_Ed`
-
+SD card labels:
+- surface reference: `E_sPAR`
+- aquatic profiler: `E_dzPAR`
+  
 ## Repository Structure
 ```
 PARcast/
@@ -46,7 +39,7 @@ PARcast/
 │       ├── par_sensor_test/
 │       ├── rtc_test/
 │       ├── sd_card_test/
-│       └── ms5837_test/                in-water unit only
+│       └── ms5837_test/                aquatic profiler only
 ├── data_processing/
 │   ├── data/
 │   │   ├── raw/
@@ -62,7 +55,6 @@ PARcast/
 ├── requirements.txt
 └── README.md
 ```
-
 **Note:** Raw data files are excluded from this repository and stored locally only.
 
 ## Getting Started
