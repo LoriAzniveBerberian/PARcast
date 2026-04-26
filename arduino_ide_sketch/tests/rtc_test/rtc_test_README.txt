@@ -9,11 +9,13 @@ chip temperature to the Serial Monitor every 3 seconds.
 Confirms the RTC is wired correctly and the coin cell battery
 is keeping time accurately.
 
+This test applies to both PARcast units — both contain a DS3231 RTC.
+
 WHY WE TEST THE RTC:
 --------------------
 The DS3231 gives every data row a timestamp. Without it there is
 no way to know when each PAR reading was taken or to synchronize
-the land station and underwater instrument in post-processing.
+the E_s(PAR) reference and E_d(z, PAR) profiler in post-processing.
 The CR1220 coin cell keeps the clock running between deployments.
 
 HOW TO RUN:
@@ -22,7 +24,7 @@ Option A — Use your locally saved sketch (recommended):
   1. Open Arduino IDE
   2. Go to File > Open
   3. Navigate to:
-     arduino_ide_sketches/PAR_Profiler/Land_Station/tests/rtc_test/rtc_test.ino
+     arduino_ide_sketch/tests/rtc_test/rtc_test.ino
   4. Click Open
      NOTE: This local version is modified for Teensy compatibility.
      It removes the Serial hang line that causes issues on Teensy.

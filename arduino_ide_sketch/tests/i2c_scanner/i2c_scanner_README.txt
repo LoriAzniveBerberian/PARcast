@@ -8,18 +8,24 @@ Scans the I2C bus and prints the address of every device it finds.
 Run this any time you rewire components or swap the Teensy to confirm
 all devices are still connected and communicating correctly.
 
+This test is shared between both PARcast units. The expected device
+list differs depending on which unit you are testing.
+
 EXPECTED DEVICES:
 -----------------
-  0x48 = ADS1115 ADC        (always present on land station)
-  0x68 = DS3231 RTC         (always present on land station)
-  0x76 = MS5837 Pressure    (underwater instrument only)
+  0x48 = ADS1115 ADC        (present on both units)
+  0x68 = DS3231 RTC         (present on both units)
+  0x76 = MS5837 Pressure    (E_d(z, PAR) profiler only)
+
+When testing the E_s(PAR) reference station, expect 2 devices found.
+When testing the E_d(z, PAR) profiler, expect 3 devices found.
 
 HOW TO RUN:
 -----------
   1. Open Arduino IDE
   2. Go to File > Open
   3. Navigate to:
-     arduino_ide_sketches/PAR_Profiler/Land_Station/tests/i2c_scanner/i2c_scanner.ino
+     arduino_ide_sketch/tests/i2c_scanner/i2c_scanner.ino
   4. Click Open
   5. Make sure Tools > Board is set to: Teensy 4.1
   6. Make sure Tools > Port shows your Teensy (listed under "teensy ports")

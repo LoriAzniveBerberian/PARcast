@@ -1,7 +1,7 @@
-// PARcast Land Station — Instrument B
-// File: land_station_final.ino
-// Logs PAR data to SD card with auto-incrementing filename
-// Format: B_LPAR_YYYYMMDD_0001.CSV
+// PARcast E_s(PAR) Reference Station
+// File: E_sPAR_reference_final.ino
+// Logs surface E_s(PAR) data to SD card with automatically incrementing filename
+// Format: E_sPAR_YYYYMMDD_0001.CSV
 // Columns: datetime, raw_counts, millivolts, ppfd_umol_m2_s
 
 #include <Adafruit_ADS1X15.h>
@@ -19,7 +19,7 @@ void generateFilename(DateTime now) {
   
   int deployNum = 1;
   while (deployNum <= 9999) {
-    sprintf(filename, "B_LPAR_%s_%04d.CSV", dateStr, deployNum);
+    sprintf(filename, "E_sPAR_%s_%04d.CSV", dateStr, deployNum);
     if (!SD.exists(filename)) {
       break;
     }
@@ -30,7 +30,7 @@ void generateFilename(DateTime now) {
 void setup() {
   Serial.begin(9600);
   delay(3000);
-  Serial.println("PARcast Land Station B Starting...");
+  Serial.println("PARcast E_s(PAR) Reference Station Starting...");
 
   if (!rtc.begin()) {
     Serial.println("ERROR: RTC failed! Check wiring.");

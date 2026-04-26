@@ -15,7 +15,7 @@ void setup() {
   if (dataFile) {
     dataFile.println("timestamp,message");
     dataFile.println("2026-04-01,SD card is working!");
-    dataFile.println("2026-04-01,PARcast land station ready!");
+    dataFile.println("2026-04-01,PARcast unit ready!");
     dataFile.close();
     Serial.println("File written successfully!");
     Serial.println("Eject card and check for test.csv on your Mac!");

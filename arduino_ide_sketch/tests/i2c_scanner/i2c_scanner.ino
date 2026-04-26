@@ -4,7 +4,7 @@
 // Expected devices for PARcast:
 //   0x48 = ADS1115 ADC
 //   0x68 = DS3231 RTC
-//   0x76 = MS5837 Pressure Sensor (underwater instrument only)
+//   0x76 = MS5837 Pressure Sensor (E_d(z, PAR) profiler only)
 
 #include <Wire.h>
 

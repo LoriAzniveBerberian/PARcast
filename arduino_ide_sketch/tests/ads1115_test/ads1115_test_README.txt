@@ -8,6 +8,9 @@ Reads all 4 channels of the ADS1115 ADC and prints voltage values
 to the Serial Monitor every second. Confirms the ADS1115 is wired
 correctly and communicating with the Teensy over I2C.
 
+This test applies to both the E_s(PAR) reference station and the
+E_d(z, PAR) profiler — both units use the same ADS1115 ADC.
+
 WHY WE CHANGE THE GAIN:
 ------------------------
 The ADS1115 default gain covers 0-6V but the PAR sensor only outputs
@@ -21,7 +24,7 @@ Option A — Use your locally saved sketch (recommended):
   1. Open Arduino IDE
   2. Go to File > Open
   3. Navigate to:
-     arduino_ide_sketches/PAR_Profiler/Land_Station/tests/ads1115_test/ads1115_test.ino
+     arduino_ide_sketch/tests/ads1115_test/ads1115_test.ino
   4. Click Open
 
 Option B — Use the Adafruit library example:

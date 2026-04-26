@@ -8,11 +8,13 @@ Reads the SQ-500-SS PAR sensor through the ADS1115 ADC and prints
 raw counts, millivolts, and PPFD to the Serial Monitor every second.
 No SD card or RTC needed — PAR sensor only.
 
+This test applies to both PARcast units — both use SQ-500-SS sensors.
+
 WIRING REMINDER:
 ----------------
-  PAR sensor white wire  → ADS1115 A0
-  PAR sensor black wire  → ADS1115 A1
-  PAR sensor clear wire  → GND rail (one end only)
+  PAR sensor white wire should be connected to ADS1115 A0
+  PAR sensor black wire should be connected to ADS1115 A1
+  PAR sensor clear wire should be connected to GND rail (one end only)
   DO NOT connect PAR sensor to power — it is self-powered by light!
 
 HOW TO RUN:
@@ -20,7 +22,7 @@ HOW TO RUN:
   1. Open Arduino IDE
   2. Go to File > Open
   3. Navigate to:
-     arduino_ide_sketches/PAR_Profiler/Land_Station/tests/par_sensor_test/par_sensor_test.ino
+     arduino_ide_sketch/tests/par_sensor_test/par_sensor_test.ino
   4. Click Open
   5. Make sure Tools > Board is set to: Teensy 4.1
   6. Make sure Tools > Port shows your Teensy (listed under "teensy ports")
@@ -37,7 +39,7 @@ WHAT TO EXPECT:
   PPFD:         622.66 umol/m2/s
 
 Cover sensor with cap — PPFD should drop near zero.
-Point at bright light outdoors — PPFD should read 600-900+ umol/m2/s.
+Point at bright light outdoors — PPFD should read 600-900+ umol/m2/s depending on sun angel/time of day
 
 CALIBRATION:
 ------------
@@ -47,4 +49,4 @@ CALIBRATION:
 
 RESULT (03/20/2026):
 --------------------
-PASSED — Cap on: ~3 umol/m2/s | Outdoors: 614-622 umol/m2/s
+PASSED — Cap on: ~3 umol/m2/s | Outdoors: 614-622 umol/m2/s at 16:00 PST sun angle ~37º

@@ -8,13 +8,16 @@ Blinks the onboard LED on and off every second.
 Confirms the Teensy is working, solder joints are good,
 and USB communication with your Mac is working.
 
+This test is hardware-agnostic and applies to both the
+E_s(PAR) reference station and the E_d(z, PAR) profiler.
+
 HOW TO RUN:
 -----------
 Option A — Use your locally saved sketch (recommended):
   1. Open Arduino IDE
   2. Go to File > Open
   3. Navigate to:
-     arduino_ide_sketches/PAR_Profiler/Land_Station/tests/blink_test/blink_test.ino
+     arduino_ide_sketch/tests/blink_test/blink_test.ino
   4. Click Open
 
 Option B — Use the built-in Arduino example:
