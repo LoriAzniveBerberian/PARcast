@@ -47,6 +47,17 @@ PARcast/
 │   │   │   └── E_dzPAR/                profiler CSVs (local only)
 │   │   └── processed/                  output from Python scripts
 │   └── scripts/                        Jupyter notebooks and Python scripts
+├── prototyping/                        schematics and hardware design files
+│   ├── E_sPAR_schematic.pdf
+│   ├── E_sPAR_schematic.pptx
+│   ├── E_dzPAR_schematic.pdf
+│   └── E_dzPAR_schematic.pptx
+├── literature/                         relevant published work
+│   ├── radiometry/
+│   │   ├── atmospheric/                cosine response (Michalsky, Harrison)
+│   │   └── aquatic/                    immersion factors (Hooker, Zibordi, Mueller)
+│   ├── sensor_electronics/             photodiode and TIA design
+│   └── embedded_systems/               firmware and microcontroller references
 ├── field_notes/
 │   └── field_notes_template.txt
 ├── docs/
