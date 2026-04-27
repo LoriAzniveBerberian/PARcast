@@ -22,3 +22,15 @@ __pycache__/
 *.elf
 *.hex
 *.bin
+
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Office temp/lock files
+~$*
+
+
