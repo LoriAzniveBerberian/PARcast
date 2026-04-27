@@ -17,8 +17,8 @@ CSV file names:
 - aquatic profiler: `E_dzPAR_YYYYMMDD_0001.CSV`
 
 SD card labels:
-- surface reference: `E_sPAR`
-- aquatic profiler: `E_dzPAR`
+- surface reference: `E_SPAR`
+- aquatic profiler: `E_DZPAR`
   
 ## Repository Structure
 ```
