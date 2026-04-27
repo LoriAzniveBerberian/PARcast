@@ -65,7 +65,18 @@ pip install -r requirements.txt
 ```
 
 ## Community
-
 We welcome suggestions, questions, and contributions from the community. If you're using PARcast or thinking about building one, head to the discussion forum to introduce yourself and share ideas:
 
 [**PARcast Discussions**](https://github.com/LoriAzniveBerberian/PARcast/discussions/1#discussion-9950905)
+
+## For Students and Newcomers
+PARcast was developed as a learning project as well as an instrument. The resources below were most useful during the build:
+
+The [`literature/`](literature/) folder contains relevant published work on sensor electronics, instrumentation design, embedded systems radiometry, calibration and validation, and ocean optics.
+
+**Ocean optics:** [Ocean Optics Web Book](https://www.oceanopticsbook.info/) — Curtis Mobley's free online textbook, the best place to start if PAR and irradiance are new to you. Also [IOCCG Reports](https://ioccg.org/what-we-do/ioccg-publications/ioccg-reports/) for protocols and methods.
+
+**Embedded systems:** [Making Embedded Systems](https://www.oreilly.com/library/view/making-embedded-systems/9781098151539/) by Elecia White and the [Adafruit Learning System](https://learn.adafruit.com/) for hands-on tutorials. The [Arduino reference](https://www.arduino.cc/reference/) and [Teensy documentation](https://www.pjrc.com/teensy/) were used throughout firmware development.
+
+## Acknowledgments
+PARcast's firmware and electronics design were developed iteratively with assistance from Anthropic's [Claude](https://claude.ai/) to explain concepts and debug circuits. The final firmware and test sketches were adapted from example sketches provided by Arduino, Teensy/PJRC, and the maker communities behind each sensor library used in this project.
