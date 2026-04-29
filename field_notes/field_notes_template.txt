@@ -1,10 +1,6 @@
 PARCAST FIELD NOTES
-====================
-Save as: YYYYMMDD_SITE.txt   (e.g., 20260615_KELP.txt)
-
 
 PRE-DEPLOYMENT CHECKLIST
-------------------------
 [ ] RTC time verified (run rtc_test.ino on each Teensy)
 [ ] Final sketches uploaded:
     - E_sPAR_reference_final.ino on surface unit
@@ -18,7 +14,6 @@ PRE-DEPLOYMENT CHECKLIST
 
 
 HOW THE INSTRUMENTS WORK
-------------------------
 Both units run automatically when powered. No laptop is needed in the field.
 
 Start a deployment:
@@ -31,12 +26,11 @@ Stop a deployment:
     2. Unplug the power bank
 
 Start a new deployment the same day:
-    Just unplug and replug — a new file is created automatically
-    (e.g., 0001 → 0002).
+    Just unplug and replug; a new file is created automatically
+    (e.g., 0001, 0002).
 
 Reset button (small button on the Teensy):
-    DO NOT press during a deployment. It interrupts logging and creates
-    a new file. If pressed accidentally, note the time below.
+    DO NOT press during a deployment. It interrupts logging and creates a new file. If pressed accidentally, note the time below.
 
 
 ====================================================================
@@ -46,27 +40,25 @@ OBSERVERS:
 WEATHER:
 ====================================================================
 
+
 DEPLOYMENT 1
 ------------
-E_s(PAR) file:    E_sPAR_________0001.CSV
-E_d(z, PAR) file: E_dzPAR_________0001.CSV
+E_s(PAR) file:    E_sPAR_YYYYMMDD_0001.CSV
+E_d(z, PAR) file: E_dzPAR_YYYYMMDD_0001.CSV
 
 Power on time:
 Power off time:
 
-Sky:        [ ] Clear   [ ] Partly cloudy   [ ] Overcast
+Sky:  
 Wind (m/s):
 Air temp:
 Sun angle:
 
 Notes (cap on/off times, shadows, surface conditions, anomalies):
-
-
-Reset button pressed?  [ ] No   [ ] Yes — time: ______ reason: ______
+Reset button pressed?  
 
 
 POST-DEPLOYMENT CHECKLIST
--------------------------
 [ ] PAR sensor caps replaced
 [ ] Power banks unplugged
 [ ] SD cards copied to:
@@ -77,8 +69,8 @@ POST-DEPLOYMENT CHECKLIST
 [ ] Pushed to GitHub
 
 
+
 TROUBLESHOOTING
----------------
 Timestamps show 2018:
     RTC coin cell (CR1220) lost power. Reseat (+ side up) and
     re-upload rtc_test.ino to set the time. Discard 2018 data.
