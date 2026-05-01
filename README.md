@@ -1,6 +1,18 @@
 # PARcast: DIY-oceanography system for profiling PAR in kelp forests
 Nearshore environments support taxonomically-rich biological assemblages that rely on sufficient solar (and lunar) illumination for critical functions including primary production, diel vertical migration, and the timing of reproduction. Photosynthetically Available Radiation, or PAR, describes the visible light (400–700 nm) that autotrophs use for photosynthesis. Quantifying PAR and its attenuation in aquatic environments is therefore essential for understanding ecological and physiological processes governing productivity and habitat suitability—relevant to species distribution and community structure. We present a prototype DIY-oceanography system, PARcast, supporting PAR profiling of complex nearshore environments where shipborne profilers and autonomous floats are generally not applicable. Although PARcast is designed for manual deployment by a swimmer or diver in kelp forests, its scalable design may extend its utility to a variety of aquatic environments (e.g., coral reefs, seagrass meadows, and inland water bodies) and deployment platforms (e.g., small crafts or piers). The prototype comprises two cosine-corrected quantum sensors (Apogee SQ-500). One sensor is externally mounted on a waterproof acrylic enclosure that contains the electronics and logs Ed(z, PAR), pressure, temperature, and tilt to an onboard microSD card. A second, standalone accessory unit with an identical electronic configuration designed for above-water operation, measures Es(PAR). We evaluate the suitability of PARcast for research and teaching applications and present initial data from cruise deployments associated with, for example, NASA’s Student Airborne Research Program and Plumes and Blooms. Instrument specifications, validation datasets, and results will be shared here for community use and feedback.
 
+## Community
+We welcome suggestions, questions, and contributions from the community. If you're using PARcast or thinking about building one, head to the discussion forum to introduce yourself and share ideas:
+
+[**PARcast Discussions**](https://github.com/LoriAzniveBerberian/PARcast/discussions/1#discussion-9950905)
+
+## For Students and Newcomers
+PARcast was developed as a learning project and DIY-oceanography system. The resources below were most useful during the build:
+
+The [`literature/`](literature/) folder contains relevant published work on sensor electronics, instrumentation design, embedded systems radiometry, calibration and validation, and ocean optics.
+
+**Ocean optics:** [Ocean Optics Web Book](https://www.oceanopticsbook.info/) — Curtis Mobley's free online textbook, the best place to start if PAR and irradiance are new to you. Also [IOCCG Reports](https://ioccg.org/what-we-do/ioccg-publications/ioccg-reports/) for protocols and methods.
+
 ## Naming Convention
 Notes and comments use `E_s(PAR)` and `E_d(z, PAR)`.
 File names, folder names, and code use `E_sPAR` and `E_dzPAR`.
@@ -68,17 +80,6 @@ conda activate parcast
 pip install -r requirements.txt
 ```
 
-## Community
-We welcome suggestions, questions, and contributions from the community. If you're using PARcast or thinking about building one, head to the discussion forum to introduce yourself and share ideas:
-
-[**PARcast Discussions**](https://github.com/LoriAzniveBerberian/PARcast/discussions/1#discussion-9950905)
-
-## For Students and Newcomers
-PARcast was developed as a learning project and DIY-oceanography system. The resources below were most useful during the build:
-
-The [`literature/`](literature/) folder contains relevant published work on sensor electronics, instrumentation design, embedded systems radiometry, calibration and validation, and ocean optics.
-
-**Ocean optics:** [Ocean Optics Web Book](https://www.oceanopticsbook.info/) — Curtis Mobley's free online textbook, the best place to start if PAR and irradiance are new to you. Also [IOCCG Reports](https://ioccg.org/what-we-do/ioccg-publications/ioccg-reports/) for protocols and methods.
 
 **Embedded systems:** [Making Embedded Systems](https://www.oreilly.com/library/view/making-embedded-systems/9781098151539/) by Elecia White and the [Adafruit Learning System](https://learn.adafruit.com/) for hands-on tutorials. The [Arduino reference](https://www.arduino.cc/reference/) and [Teensy documentation](https://www.pjrc.com/teensy/) were used throughout firmware development.
 
