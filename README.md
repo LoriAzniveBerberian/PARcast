@@ -74,7 +74,7 @@ We welcome suggestions, questions, and contributions from the community. If you'
 [**PARcast Discussions**](https://github.com/LoriAzniveBerberian/PARcast/discussions/1#discussion-9950905)
 
 ## For Students and Newcomers
-PARcast was developed as a learning project as well as an instrument. The resources below were most useful during the build:
+PARcast was developed as a learning project and DIY-oceanography system. The resources below were most useful during the build:
 
 The [`literature/`](literature/) folder contains relevant published work on sensor electronics, instrumentation design, embedded systems radiometry, calibration and validation, and ocean optics.
 
