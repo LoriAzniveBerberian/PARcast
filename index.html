@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cosine Law &amp; Cosine Correction</title>
+<style>
+  :root {
+    --bg: #0e1116;
+    --panel: #161b22;
+    --line: #2a313c;
+    --ink: #e7e3d8;
+    --muted: #8b929e;
+    --accent: #f0a830;
+    --accent-dim: rgba(240, 168, 48, 0.45);
+    --surface: #3a4351;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f4f1e8;
+      --panel: #fbf9f2;
+      --line: #ddd8c8;
+      --ink: #2b2820;
+      --muted: #6f6a5c;
+      --surface: #cfc8b4;
+      --accent-dim: rgba(196, 122, 16, 0.5);
+      --accent: #c47a10;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 26px 30px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sub { color: var(--muted); font-size: 13px; margin: 0 0 22px; }
+  .control { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .control label {
+    font-size: 13px; color: var(--muted); min-width: 84px;
+    font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  input[type=range] {
+    -webkit-appearance: none; appearance: none;
+    flex: 1; height: 4px; border-radius: 4px;
+    background: var(--surface); outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--panel); cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--panel); cursor: pointer;
+  }
+  .angval {
+    font-family: var(--mono); font-size: 15px; font-weight: 500;
+    min-width: 46px; text-align: right;
+  }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+  .stat { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 13px 15px; }
+  .stat .k {
+    font-size: 11px; color: var(--muted); margin: 0 0 5px;
+    font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .stat .v { font-size: 26px; font-weight: 600; margin: 0; font-family: var(--mono); }
+  svg { display: block; width: 100%; height: auto; }
+  .zlabel { font-family: var(--mono); font-size: 12px; }
+  .foot {
+    margin: 18px 0 0; font-size: 12px; color: var(--muted);
+    border-top: 1px solid var(--line); padding-top: 14px;
+  }
+  .foot code { font-family: var(--mono); color: var(--accent); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="eyebrow">Lambert&rsquo;s cosine law</p>
+    <h1>Why a tilted surface gets less light</h1>
+    <p class="sub">The same beam spreads over a wider footprint as the angle steepens, so irradiance falls by cos&thinsp;&theta;. This is the response a cosine-corrected PAR sensor is built to mimic.</p>
+
+    <div class="control">
+      <label for="ang">Zenith&nbsp;&theta;</label>
+      <input type="range" id="ang" min="0" max="85" step="1" value="30" />
+      <span class="angval" id="angOut">30&deg;</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <p class="k">Irradiance &middot; cos&thinsp;&theta;</p>
+        <p class="v" id="irrOut">87%</p>
+      </div>
+      <div class="stat">
+        <p class="k">Spread &middot; 1/cos&thinsp;&theta;</p>
+        <p class="v" id="spreadOut">1.15&times;</p>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 380 250" role="img" aria-labelledby="svgTitle svgDesc">
+      <title id="svgTitle">Light beam striking a flat surface at an angle</title>
+      <desc id="svgDesc">Parallel rays of fixed beam width hit a horizontal surface; as the angle from vertical grows, the illuminated footprint widens and the energy per unit area falls.</desc>
+      <defs>
+        <marker id="ray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <line x1="30" y1="205" x2="350" y2="205" stroke="var(--surface)" stroke-width="1.5"/>
+      <rect id="foot" x="150" y="200" width="80" height="9" rx="2" fill="var(--accent)" opacity="0.5"/>
+      <g id="rays" stroke="var(--accent)" stroke-width="1.6"></g>
+      <text id="zlabel" class="zlabel" x="190" y="234" text-anchor="middle" fill="var(--muted)">&theta; = 30&deg; from vertical</text>
+    </svg>
+
+    <p class="foot">At <code>&theta; = 0&deg;</code> the surface sees full intensity; at <code>60&deg;</code> it&rsquo;s halved; near the horizon it fades to nothing. A bare detector under-reads steep angles &mdash; the diffuser dome corrects it back onto this curve.</p>
+  </div>
+
+<script>
+(function () {
+  var ang = document.getElementById('ang');
+  var angOut = document.getElementById('angOut');
+  var irrOut = document.getElementById('irrOut');
+  var spreadOut = document.getElementById('spreadOut');
+  var footRect = document.getElementById('foot');
+  var rays = document.getElementById('rays');
+  var zlabel = document.getElementById('zlabel');
+  var cx = 190, surfaceY = 205, beamWidth = 80, len = 155, n = 5;
+
+  function update() {
+    var deg = +ang.value;
+    var rad = deg * Math.PI / 180;
+    var c = Math.cos(rad);
+    angOut.innerHTML = deg + '&deg;';
+    irrOut.textContent = Math.round(c * 100) + '%';
+    spreadOut.innerHTML = (1 / c).toFixed(2) + '&times;';
+    zlabel.innerHTML = '&theta; = ' + deg + '&deg; from vertical';
+
+    var footW = beamWidth / c;
+    var x0 = cx - footW / 2;
+    footRect.setAttribute('x', x0.toFixed(1));
+    footRect.setAttribute('width', footW.toFixed(1));
+
+    var dx = Math.sin(rad), dy = -Math.cos(rad);
+    var html = '';
+    for (var i = 0; i < n; i++) {
+      var fx = x0 + footW * (i / (n - 1));
+      var sx = fx + dx * len;
+      var sy = surfaceY + dy * len;
+      var me = (i === 0 || i === n - 1) ? ' marker-end="url(#ray)"' : '';
+      html += '<line x1="' + sx.toFixed(1) + '" y1="' + sy.toFixed(1) +
+              '" x2="' + fx.toFixed(1) + '" y2="' + surfaceY + '"' + me + '/>';
+    }
+    rays.innerHTML = html;
+  }
+
+  ang.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>

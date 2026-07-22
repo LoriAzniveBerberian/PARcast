@@ -1,0 +1,21 @@
+# PARcast Python environment
+# Core scientific stack for PARcast data processing
+# Generated for Python 3.11
+
+# Core data + numerics
+numpy>=2.0
+pandas>=2.0
+scipy>=1.11
+
+# Plotting
+matplotlib>=3.8
+
+# Notebooks
+jupyter>=1.0
+jupyterlab>=4.0
+ipykernel>=6.0
+ipywidgets>=8.0
+
+# Utilities
+pyyaml>=6.0
+python-dateutil>=2.8

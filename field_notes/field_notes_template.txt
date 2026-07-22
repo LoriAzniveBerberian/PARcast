@@ -1,0 +1,84 @@
+PARCAST FIELD NOTES
+
+PRE-DEPLOYMENT CHECKLIST
+[ ] RTC time verified (run rtc_test.ino on each Teensy)
+[ ] Final sketches uploaded:
+    - E_sPAR_reference_final.ino on surface unit
+    - E_dzPAR_profiler_final.ino on in-water unit
+[ ] SD cards inserted and have free space:
+    - PARCAST_Es in surface unit
+    - PARCAST_Ed in in-water unit
+[ ] PAR sensor caps ON
+[ ] USB power bank charged
+[ ] Cables and field notes packed
+
+
+HOW THE INSTRUMENTS WORK
+Both units run automatically when powered. No laptop is needed in the field.
+
+Start a deployment:
+    1. Plug power bank into the Teensy
+    2. Wait 3 seconds for startup
+    3. Remove the PAR sensor cap
+
+Stop a deployment:
+    1. Replace the PAR sensor cap
+    2. Unplug the power bank
+
+Start a new deployment the same day:
+    Just unplug and replug; a new file is created automatically
+    (e.g., 0001, 0002).
+
+Reset button (small button on the Teensy):
+    DO NOT press during a deployment. It interrupts logging and creates a new file. If pressed accidentally, note the time below.
+
+
+====================================================================
+DATE:
+SITE:
+OBSERVERS:
+WEATHER:
+====================================================================
+
+
+DEPLOYMENT 1
+------------
+E_s(PAR) file:    E_sPAR_YYYYMMDD_0001.CSV
+E_d(z, PAR) file: E_dzPAR_YYYYMMDD_0001.CSV
+
+Power on time:
+Power off time:
+
+Sky:  
+Wind (m/s):
+Air temp:
+Sun angle:
+
+Notes (cap on/off times, shadows, surface conditions, anomalies):
+Reset button pressed?  
+
+
+POST-DEPLOYMENT CHECKLIST
+[ ] PAR sensor caps replaced
+[ ] Power banks unplugged
+[ ] SD cards copied to:
+    - data_processing/data/raw/E_sPAR/
+    - data_processing/data/raw/E_dzPAR/
+[ ] SD cards ejected and reinserted
+[ ] Field notes saved to field_notes/YYYYMMDD_SITE.txt
+[ ] Pushed to GitHub
+
+
+
+TROUBLESHOOTING
+Timestamps show 2018:
+    RTC coin cell (CR1220) lost power. Reseat (+ side up) and
+    re-upload rtc_test.ino to set the time. Discard 2018 data.
+
+Multiple files created unexpectedly:
+    Reset button was pressed accidentally. Note affected files
+    and times — the data is still usable, just split.
+
+SD card not detected:
+    Push card in firmly until it clicks. Verify FAT32 + MBR
+    format (see SD_CARD_FORMAT_INSTRUCTIONS.txt).
