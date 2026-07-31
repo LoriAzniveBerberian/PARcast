@@ -1,15 +1,15 @@
 # PARCAST: DIY-oceanography system for profiling PAR in kelp forests
-Nearshore environments support taxonomically-rich biological assemblages that rely on sufficient solar (and lunar) illumination for critical functions including primary production, diel vertical migration, and the timing of reproduction. Photosynthetically Available Radiation, or PAR, describes the visible light (400–700 nm) that autotrophs use for photosynthesis. Quantifying PAR and its attenuation in aquatic environments is therefore essential for understanding ecological and physiological processes governing productivity and habitat suitability—relevant to species distribution and community structure. We present a prototype DIY-oceanography system, PARcast, supporting PAR profiling of complex nearshore environments where shipborne profilers and autonomous floats are generally not applicable. Although PARcast is designed for manual deployment by a swimmer or diver in kelp forests, its scalable design may extend its utility to a variety of aquatic environments (e.g., coral reefs, seagrass meadows, and inland water bodies) and deployment platforms (e.g., small crafts or piers). The prototype comprises two cosine-corrected quantum sensors (Apogee SQ-500). One sensor is externally mounted on a waterproof acrylic enclosure that contains the electronics and logs Ed(z, PAR), pressure, temperature, and tilt to an onboard microSD card. A second, standalone accessory unit with an identical electronic configuration designed for above-water operation, measures Es(PAR). We evaluate the suitability of PARcast for research and teaching applications and present initial data from cruise deployments associated with, for example, NASA’s Student Airborne Research Program and Plumes and Blooms. Instrument specifications, validation datasets, and results will be shared here for community use and feedback.
+Nearshore environments support taxonomically-rich biological assemblages that rely on sufficient solar (and lunar) illumination for critical functions including primary production, diel vertical migration, and the timing of reproduction. Photosynthetically Available Radiation, or PAR, describes the visible light (400–700 nm) that autotrophs use for photosynthesis. Quantifying PAR and its attenuation in aquatic environments is therefore essential for understanding ecological and physiological processes governing productivity and habitat suitability—relevant to species distribution and community structure. We present a prototype DIY-oceanography system, PARCAST, supporting PAR profiling of complex nearshore environments where shipborne profilers and autonomous floats are generally not applicable. Although PARCAST is designed for manual deployment by a swimmer or diver in kelp forests, its scalable design may extend its utility to a variety of aquatic environments (e.g., coral reefs, seagrass meadows, and inland water bodies) and deployment platforms (e.g., small crafts or piers). The prototype comprises two cosine-corrected quantum sensors (Apogee SQ-500). One sensor is externally mounted on a waterproof acrylic enclosure that contains the electronics and logs Ed(z, PAR), pressure, temperature, and tilt to an onboard microSD card. A second, standalone accessory unit with an identical electronic configuration designed for above-water operation, measures Es(PAR). We evaluate the suitability of PARCAST for research and teaching applications and present initial data from cruise deployments associated with, for example, NASA’s Student Airborne Research Program and Plumes and Blooms. Instrument specifications, validation datasets, and results will be shared here for community use and feedback.
 
 ## Field Deployments
 <table>
   <tr>
     <td colspan="2" width="100%">
-      <img src="field_photos/skibeach_07142026.png" width="100%" alt="PARcast field deployment, Lake Tahoe, July 2026">
+      <img src="field_photos/skibeach_07142026.png" width="100%" alt="PARCAST field deployment, Lake Tahoe, July 2026">
     </td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><em>PARcast field deployment, Lake Tahoe, July 2026</em></td>
+    <td colspan="2" align="center"><em>PARCAST field deployment, Lake Tahoe, July 2026</em></td>
   </tr>
   <tr>
     <td width="50%">
@@ -25,12 +25,12 @@ Nearshore environments support taxonomically-rich biological assemblages that re
 </table>
 
 ## Community
-We welcome suggestions, questions, and contributions from the community. If you're using PARcast or thinking about building one, head to the discussion forum to introduce yourself and share ideas:
+We welcome suggestions, questions, and contributions from the community. If you're using PARCAST or thinking about building one, head to the discussion forum to introduce yourself and share ideas:
 
-[**PARcast Discussions**](https://github.com/LoriAzniveBerberian/PARcast/discussions/1#discussion-9950905)
+[**PARCAST Discussions**](https://github.com/LoriAzniveBerberian/PARCAST/discussions/1#discussion-9950905)
 
 ## For Students and Newcomers
-PARcast was developed as a learning project and DIY-oceanography system. The resources below were most useful during the build:
+PARCAST was developed as a learning project and DIY-oceanography system. The resources below were most useful during the build:
 
 The [`literature/`](literature/) folder contains relevant published work on sensor electronics, instrumentation design, embedded systems radiometry, calibration and validation, and ocean optics.
 
@@ -54,7 +54,7 @@ SD card labels:
   
 ## Repository Structure
 ```
-PARcast/
+PARCAST/
 ├── arduino_ide_sketch/
 │   ├── E_sPAR/
 │   │   └── final/
